@@ -14,7 +14,7 @@ async def get_trade_socket(ts):
     s = bsm.trade_socket(ts)
     await s.__aenter__()
     msg = await s.recv()
-    print(create_frame(msg))
+    return create_frame(msg)
 
 
 def create_frame(msg):
@@ -24,7 +24,3 @@ def create_frame(msg):
     df.Price = df.Price.astype(float)
     df.Time = pd.to_datetime(df.Time, unit="ms")
     return df
-
-
-if __name__ == "__main__":
-    asyncio.run(get_trade_socket("BTCUSDT"))
