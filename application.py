@@ -9,7 +9,7 @@ application = Flask(__name__)
 
 @application.route('/')
 def index():  # put application's code here
-    return asyncio.run(get_trade_socket("BTCUSDT"))
+    return "this is a goody"#asyncio.run(get_trade_socket("BTCUSDT"))
 @application.route('/hello')
 def hello():
     return 'Hello, World'
